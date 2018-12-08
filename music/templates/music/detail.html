@@ -1,0 +1,45 @@
+{% extends 'music/base.html' %}
+{% block title %}
+Album details
+{% endblock %}
+{% block body %}
+<div class="split left">
+    <div class="centered">
+<h1>MY ALBUM</h1><BR>
+<img src="{{ album.album_logo.url }}" width="25%" height="45%">
+<hr><hr>
+<h2>{{ album.album_title }}</h2>
+<h3>{{ album.artist }}</h3>
+<br><br>
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+    <form action="#" method="post">
+    {% csrf_token %}
+    {% for song in album.song_set.all %}<input type="radio" id="song{{ forloop.counter }}" name="song" value="{{song.pk}}">
+        <label for="song{{ forloop.counter }}">
+            <a href="{{ song.video }}">{{ song.song_title }}</a><br>
+            <audio controls>
+    <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+</audio>
+
+            <br><br>
+
+        </label><br>
+    {% endfor %}
+    <br><br>
+
+</form>
+    </div>
+</div>
+<div class="split right">
+    <div class="centered">
+        <iframe id="inlineFrameExample"
+    title="Inline Frame Example"
+    width="300"
+    height="200"
+    src="https://r4---sn-qxa7snee.googlevideo.com/videoplayback?ratebypass=yes&ipbits=0&itag=43&fvip=4&dur=0.000&id=o-AOJa4UZPtoVW13lXsitVS4Q3yd0xRrqA09oseuwMxIqc&pl=18&source=youtube&mime=video%2Fwebm&signature=3E60AA6E22AB94D970709CD8A39F32975F91AB0E.071288A580184BD308CAB9E9C463BDF22425DEC2&ip=209.97.166.110&lmt=1412008664590942&c=WEB&ei=borqW_WLEoHyowOMjIbABA&expire=1542119118&requiressl=yes&sparams=clen,dur,ei,expire,gir,id,ip,ipbits,ipbypass,itag,lmt,mime,mip,mm,mn,ms,mv,pl,ratebypass,requiressl,source&gir=yes&clen=9294977&key=cms1&title=[DownloadVideoMp3.com]MUSIC-and-its-importance-in-our-lives&rm=sn-nposl7z&fexp=23763603&req_id=9db7603c1685a3ee&ipbypass=yes&mip=47.30.226.159&redirect_counter=2&cm2rm=sn-gwpa-qxak7z&cms_redirect=yes&mm=30&mn=sn-qxa7snee&ms=nxu&mt=1542097434&mv=m"> </iframe>
+
+    </div>
+</div>
+{% endblock %}
