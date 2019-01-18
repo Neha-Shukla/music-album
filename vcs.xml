@@ -34,6 +34,10 @@
           <option name="url" value="https://github.com/maxg203/Django-Tutorials" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/frfahim/blog_codes" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\Neha\desktop" />
